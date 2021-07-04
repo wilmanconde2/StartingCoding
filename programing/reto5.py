@@ -114,7 +114,6 @@ def create_matriz(home, work, park):
     matriz_coordinates = np.array(matriz_coordinates)
     return matriz_coordinates
 
-
 def good_bye():
     print('''
        ___     ___     ___     ___     ___     ___     ___   
@@ -142,11 +141,6 @@ def calculate_wifi_distance(point1, point2):
     distancia = c * 1000
     return distancia, coor2
     
-wifi_zones = [[-3.777, -70.302, 91],[-4.134, -69.983, 233],[-4.006, -70.132, 149],[-3.846, -70.222, 211]]
-wifi_zones = np.array(wifi_zones)
-wifi_predet = [[-3.002, -69.714],[-4.227,-70.365]]
-
-# usuario y contrasena predefinidos
 user = '51604'
 password = '40615'
 home = []
@@ -161,6 +155,11 @@ guess1 = ('Para confirmar por favor responda:\nSe trata de un caso extraño, pue
           'siempre el mismo, valgo mucho o valgo nada,según el sitio en el que vaya\n-> ')
 guess2 = ('Para confirmar por favor responda:\nLas estaciones del año y también los '
           'elementos y los puntos cardinales, ese número represento\n-> ') 
+wifi_zones = [[-3.777, -70.302, 91],[-4.134, -69.983, 233],[-4.006, -70.132, 149],[-3.846, -70.222, 211]]
+wifi_zones = np.array(wifi_zones)
+wifi_predet = [[-3.002, -69.714],[-4.227,-70.365]]
+
+# Inicio del programa
 print(f'Usuario {user}')
 name = input('Introduzca su usuario\n-> ')  # se pide usuario predefinido
 if name != user:
