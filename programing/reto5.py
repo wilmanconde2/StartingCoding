@@ -1,6 +1,7 @@
 import sys                                                                     
 import math as mt
 import numpy as np
+import os
 
 print('''
  ________   __            __    __             __             ______                                 
@@ -183,7 +184,8 @@ else:
                 print(n, m)
             print()
             option = input('Elija una opción\n-> ')
-            print('\n'*50)
+            os.system('cls')
+            print('-' * 150)
             counter = 0                # contador iniciado en 0
             while True:
                 if option == '1':                                 # menu de opciones escogido 1 - 7
@@ -201,7 +203,8 @@ else:
                         else:
                             password_new != password
                             password = password_new
-                            print('\n'*50)
+                            os.system('cls')
+                            print('-' * 150)
                             print('Cambio de contrasena exitoso\n')
                 elif option == '2':
                     counter = 0
@@ -608,14 +611,16 @@ else:
                 
                 elif option == '6':                           # opción 6 para escoger opción preferida
                     counter = 0                # contador se reinicia a 0 por si hubo errores de ingreso 
-                    print('\n'*50)
+                    os.system('cls')
+                    print('-' * 150)
                     for n, m in enumerate(menu,1):
                         if n != 6 and n != 7:
                             print(n, m)
                     print()
                     choice_favorite = input('Seleccione opción favorita\n-> ')
                     if choice_favorite == '1':                     # el menu queda igual con la opción 1
-                        print('\n'*50)
+                        os.system('cls')
+                        print('-' * 150)
                         for n, m in enumerate(menu,1):
                             print(n, m)
                         print()
@@ -698,16 +703,16 @@ else:
                             print('Error')
                     else:           # mensaje de error si ingresa un numero diferente entre 1 - 5(termina programa)
                         print('Error')
-                        break
+                        sys.exit()
                 elif option == '7':       # opción para terminar el programa
                     good_bye()
                     print('Hasta pronto')
-                    break
+                    sys.exit()
                 else:                       # mensaje de error al introducir opción en menu(4 errores seguidos termina el programa)
                     print('Error')
                     counter += 1
                     if counter == 4:
-                        break
+                        sys.exit()
                 for n, m in enumerate(menu,1):
                     print(n, m)
                 print()
