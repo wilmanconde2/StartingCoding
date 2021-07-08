@@ -1,24 +1,26 @@
 import sys                                                                     
 import math as mt
 import numpy as np
-import os
 
-print('''
- ________   __            __    __             __             ______                                 
- |        \|  \          |  \  |  \           |  \           /      \                                
- \$$$$$$$$ \ $$  _______ | $$\ | $$  ______  _| $$_         |  $$$$$$\  ______    ______    ______   
-    | $$   |  \ /       \| $$$\| $$ /      \|   $$ \        | $$   \$$ /      \  /      \  /      \  
-    | $$   | $$|  $$$$$$$| $$$$\ $$|  $$$$$$\ \$$$$$$       | $$      |  $$$$$$\|  $$$$$$\|  $$$$$$\ 
-    | $$   | $$| $$      | $$\$$ $$| $$    $$ | $$ __       | $$   __ | $$  | $$| $$   \$$| $$  | $$ 
-    | $$   | $$| $$_____ | $$ \$$$$| $$$$$$$$ | $$|  \      | $$__/  \| $$__/ $$| $$      | $$__/ $$ 
-    | $$   | $$ \$$     \| $$  \$$$ \$$     \  \$$  $$       \$$    $$ \$$    $$| $$      | $$    $$ 
-    \ $$    \$$  \$$$$$$$ \$$   \$$  \$$$$$$$   \$$$$         \$$$$$$   \$$$$$$  \$$      | $$$$$$$  
-                                                                                          | $$       
-                                                                                          | $$       
-                                                                                           \$$          
-\nBienvenido al sistema de ubicación para zonas públicas WIFI\n     ''')
+def saludo_inicial():
+        
+    print('''
+    ________   __            __    __             __             ______                                 
+    |        \|  \          |  \  |  \           |  \           /      \                                
+    \$$$$$$$$ \ $$  _______ | $$\ | $$  ______  _| $$_         |  $$$$$$\  ______    ______    ______   
+        | $$   |  \ /       \| $$$\| $$ /      \|   $$ \        | $$   \$$ /      \  /      \  /      \  
+        | $$   | $$|  $$$$$$$| $$$$\ $$|  $$$$$$\ \$$$$$$       | $$      |  $$$$$$\|  $$$$$$\|  $$$$$$\ 
+        | $$   | $$| $$      | $$\$$ $$| $$    $$ | $$ __       | $$   __ | $$  | $$| $$   \$$| $$  | $$ 
+        | $$   | $$| $$_____ | $$ \$$$$| $$$$$$$$ | $$|  \      | $$__/  \| $$__/ $$| $$      | $$__/ $$ 
+        | $$   | $$ \$$     \| $$  \$$$ \$$     \  \$$  $$       \$$    $$ \$$    $$| $$      | $$    $$ 
+        \ $$    \$$  \$$$$$$$ \$$   \$$  \$$$$$$$   \$$$$         \$$$$$$   \$$$$$$  \$$      | $$$$$$$  
+                                                                                            | $$       
+                                                                                            | $$       
+                                                                                            \$$          
+    \nBienvenido al sistema de ubicación para zonas públicas WIFI\n     ''')
+    return
 
-def saludo():
+def ingresar_coordenadas():
     print('Ingresa la coordenada WiFi favorita de casa, trabajo y parque\n')
 
 def enter_and_validation_coordinates_home(home=[]):
@@ -103,7 +105,7 @@ def enter_and_validation_coordinates_park(park=[]):
             return park
         
 def is_list_empty(home, work, park):
-    if home == [] or work == [] or park == []:
+    if len(home) == 0 or len(work) == 0 or len(park) == 0:
         print('Error')
         sys.exit()
         
@@ -114,16 +116,6 @@ def create_matriz(home, work, park):
     matriz_coordinates.append(park)
     matriz_coordinates = np.array(matriz_coordinates)
     return matriz_coordinates
-
-def good_bye():
-    print('''
-       ___     ___     ___     ___     ___     ___     ___   
-      / __|   | _ \   /   \   / __|   |_ _|   /   \   / __|  
-     | (_ |   |   /   | - |  | (__     | |    | - |   \__ \  
-      \___|   |_|_\   |_|_|   \___|   |___|   |_|_|   |___/  
-    _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| 
-    "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
-    ''')
     
 def calculate_wifi_distance(point1, point2):
     r_tierra = 6372.795477598
@@ -141,13 +133,20 @@ def calculate_wifi_distance(point1, point2):
     c = 2 * r_tierra * mt.asin(mt.sqrt(a))
     distancia = c * 1000
     return distancia, coor2
+
+def good_bye():
+    print('''
+       ___     ___     ___     ___     ___     ___     ___   
+      / __|   | _ \   /   \   / __|   |_ _|   /   \   / __|  
+     | (_ |   |   /   | - |  | (__     | |    | - |   \__ \  
+      \___|   |_|_\   |_|_|   \___|   |___|   |_|_|   |___/  
+    _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| 
+    "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
+    ''')
     
 user = '51604'
 password = '40615'
-home = []
-work = []
-park = []
-matriz_coordinates = []
+home, work, park, matriz_coordinates = [], [], [], []
 election = ''
 menu = ['Cambiar contraseña','Ingresar coordenadas actuales','Ubicar zona wifi más cercana',
         'Guardar archivo con ubicación cercana','Actualizar registros de zonas wifi desde archivo',
@@ -161,6 +160,7 @@ wifi_zones = np.array(wifi_zones)
 wifi_predet = [[-3.002, -69.714],[-4.227,-70.365]]
 
 # Inicio del programa
+saludo_inicial()
 print(f'Usuario {user}')
 name = input('Introduzca su usuario\n-> ')  # se pide usuario predefinido
 if name != user:
@@ -179,17 +179,21 @@ else:
         if response_captcha != add:
             print('Error')
         else:
+            print(50 * '\n')
+            print('-' * 150)
             print('\nSesión iniciada\n ')
             for n, m in enumerate(menu,1):
                 print(n, m)
             print()
             option = input('Elija una opción\n-> ')
-            os.system('cls')
+            print(50 * '\n')
             print('-' * 150)
             counter = 0                # contador iniciado en 0
             while True:
                 if option == '1':                                 # menu de opciones escogido 1 - 7
-                    counter = 0 
+                    print(50 * '\n')
+                    print('-' * 150)
+                    counter = 0                     # contador se reinicia a 0 
                     print('Usted ha elegido la opción 1\n')
                     confirmation = input('Confirme contrasena actual\n->')
                     if confirmation != password:
@@ -203,23 +207,27 @@ else:
                         else:
                             password_new != password
                             password = password_new
-                            os.system('cls')
+                            print(50 * '\n')
                             print('-' * 150)
                             print('Cambio de contrasena exitoso\n')
                 elif option == '2':
-                    counter = 0
+                    print(50 * '\n')
+                    print('-' * 150)
+                    counter = 0                     # contador se reinicia a 0
                     print('Usted ha elegido la opción 2\n')
                     print('Coordenadas favoritas')
                     print('-'*30)
                     print(f'Coordenadas casa {home}\nCoordenadas trabajo {work}\nCoordenadas parque {park}\n')
                     
                     if len(matriz_coordinates) < 2:
-                        saludo()
+                        ingresar_coordenadas()
                         home = enter_and_validation_coordinates_home()
                         work = enter_and_validation_coordinates_work()
                         park = enter_and_validation_coordinates_park()
                         is_list_empty(home, work, park)   
                         matriz_coordinates = create_matriz(home, work, park)
+                        print(50 * '\n')
+                        print('-' * 150)
                     else:
                         if home < work and home < park:
                             print(f'La coordenada ubicada más al sur es casa {home}\n')
@@ -228,11 +236,7 @@ else:
                         else:
                             print(f'La coordenada ubicada más al sur es parque {park}\n')
                             
-                        matriz_coordinates = []
-                        matriz_coordinates.append(home)
-                        matriz_coordinates.append(work)
-                        matriz_coordinates.append(park)
-                        matriz_coordinates = np.array(matriz_coordinates)
+                        create_matriz(home, work, park)
                         addition_latitudes = []
                         addition_longitudes = []
                         addition_latitudes = np.sum(matriz_coordinates[:,0:1])
@@ -244,15 +248,22 @@ else:
                         election = input(f'1.Editar casa\n2.Editar trabajo\n3.Editar parque\n0.Volver al menu\n-> ')
                         if election == '1':
                             home = enter_and_validation_coordinates_home()
+                            print(50 * '\n')
+                            print('-' * 150)
                             pass
                         elif election == '2':
                             work = enter_and_validation_coordinates_work()
+                            print(50 * '\n')
+                            print('-' * 150)
                             pass
                         elif election == '3':
                             park = enter_and_validation_coordinates_park()
+                            print(50 * '\n')
+                            print('-' * 150)
                             pass
                         elif election == '0':
-                            print()
+                            print(50 * '\n')
+                            print('-' * 150)            
                             pass
                         else:
                             print('Error actualización')
@@ -260,7 +271,9 @@ else:
                     pass
                 
                 elif option == '3':
-                    counter = 0 
+                    print(50 * '\n')
+                    print('-' * 150)
+                    counter = 0                     # contador se reinicia a 0 
                     print('Usted ha elegido la opción 3\n')
                     if len(matriz_coordinates) < 2:
                         print('Error sin registro de coordenadas')
@@ -271,6 +284,8 @@ else:
                         election = input('Por favor elija su ubicación actual (1, 2 ó 3) para calcular la distancia'
                                          ' a los puntos de conexión\n-> ')
                         if election == '1':
+                            print(50 * '\n')
+                            print('-' * 150)
                             print()
                             # Verificacion de las coordenadas de los puntos cercanos
                             for coordinates in wifi_zones:
@@ -345,6 +360,8 @@ else:
                                 sys.exit()
                                 
                         elif election == '2':
+                            print(50 * '\n')
+                            print('-' * 150)
                             print()
                             # Verificación de las coordenadas de los puntos cercanos
                             for coordinates in wifi_zones:
@@ -419,6 +436,8 @@ else:
                                 sys.exit()
                             
                         elif election == '3':
+                            print(50 * '\n')
+                            print('-' * 150)
                             print()
                             # Verificación de las coordenadas de los puntos cercanos
                             for coordinates in wifi_zones:
@@ -496,10 +515,14 @@ else:
                             sys.exit()
                 
                 elif option == '4':
-                    counter = 0 
+                    print(50 * '\n')
+                    print('-' * 150)
+                    counter = 0                     # contador se reinicia a 0 
                     print('Usted ha elegido la opción 4\n')
                     
                     if len(matriz_coordinates) < 2 or choice_direction == '':
+                            print(50 * '\n')
+                            print('-' * 150)
                             print('Error de alistamiento')
                             sys.exit()
                     else:
@@ -515,8 +538,12 @@ else:
                                 export = input('\n¿Está de acuerdo con la información a exportar? Presione 1 para confirmar,'
                                       '0 para regresar al menú principal\n->')
                                 if export == '0':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     pass
                                 elif export == '1':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     print('Exportando archivo')
                                     sys.exit()                                      
                                     
@@ -530,8 +557,12 @@ else:
                                 export = input('\n¿Está de acuerdo con la información a exportar? Presione 1 para confirmar,'
                                       '0 para regresar al menú principal\n->')
                                 if export == '0':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     pass
                                 elif export == '1':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     print('Exportando archivo')
                                     sys.exit()                                                           
                         
@@ -546,8 +577,12 @@ else:
                                 export = input('\n¿Está de acuerdo con la información a exportar? Presione 1 para confirmar,'
                                       '0 para regresar al menú principal\n->')
                                 if export == '0':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     pass
                                 elif export == '1':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     print('Exportando archivo')
                                     sys.exit()                                    
                                                                         
@@ -561,8 +596,12 @@ else:
                                 export = input('\n¿Está de acuerdo con la información a exportar? Presione 1 para confirmar,'
                                       '0 para regresar al menú principal\n->')
                                 if export == '0':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     pass
                                 elif export == '1':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     print('Exportando archivo')
                                     sys.exit()                                    
                                                     
@@ -577,8 +616,12 @@ else:
                                 export = input('\n¿Está de acuerdo con la información a exportar? Presione 1 para confirmar,'
                                       '0 para regresar al menú principal\n->')
                                 if export == '0':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     pass
                                 elif export == '1':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     print('Exportando archivo')
                                     sys.exit()                                     
                                                                        
@@ -592,26 +635,36 @@ else:
                                 export = input('\n¿Está de acuerdo con la información a exportar? Presione 1 para confirmar,'
                                       '0 para regresar al menú principal\n->')
                                 if export == '0':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     pass
                                 elif export == '1':
+                                    print(50 * '\n')
+                                    print('-' * 150)
                                     print('Exportando archivo')
                                     sys.exit()                                           
                                                                        
                 elif option == '5':
-                    counter = 0 
+                    print(50 * '\n')
+                    print('-' * 150)
+                    counter = 0                     # contador se reinicia a 0 
                     print('Usted ha elegido la opción 5\n')  
                     
                     # archivo = open(r'C:\Users\WC2\Desktop\UPB\upb\programing\reto5datos.csv')
                     # print(archivo.read())
                     decition = input('Datos de coordenadas para zonas wifi actualizados, presione 0 para regresar al menú principal\n-> ')
                     if decition == '0':
+                        print(50 * '\n')
+                        print('-' * 150)
                         pass
                     else:
                         sys.exit()
                 
                 elif option == '6':                           # opción 6 para escoger opción preferida
-                    counter = 0                # contador se reinicia a 0 por si hubo errores de ingreso 
-                    os.system('cls')
+                    print(50 * '\n')
+                    print('-' * 150)
+                    counter = 0                     # contador se reinicia a 0       
+                    print(50 * '\n')
                     print('-' * 150)
                     for n, m in enumerate(menu,1):
                         if n != 6 and n != 7:
@@ -619,7 +672,7 @@ else:
                     print()
                     choice_favorite = input('Seleccione opción favorita\n-> ')
                     if choice_favorite == '1':                     # el menu queda igual con la opción 1
-                        os.system('cls')
+                        print(50 * '\n')
                         print('-' * 150)
                         for n, m in enumerate(menu,1):
                             print(n, m)
@@ -632,14 +685,12 @@ else:
                         if resp_1 == '0':           # adivinanzas 1 y 2 para confirmar elección
                             resp_2 = input(guess2)         
                             if resp_2 == '4':
-                                print('\n')          # menu actualizado
+                                print(50 * '\n')
+                                print('-' * 150)          
                                 removed = menu.pop(1)
                                 menu.insert(0, removed)
                                 for n, m in enumerate(menu,1):
-                                    print(n, m)
-                                # for n, m in zip(numeral_menu, menu):
-                                #     print(n, m)
-                                # print('\n')
+                                    print(n, m)                 # menu actualizado
                                 option = input('Elija una opción\n-> ')
                                 print('\n')
                                 continue
@@ -652,11 +703,12 @@ else:
                         if resp_1 == '0':           # adivinanzas 1 y 2 para confirmar elección
                             resp_2 = input(guess2)            
                             if resp_2 == '4':
-                                print('\n')          # menu actualizado
+                                print(50 * '\n')
+                                print('-' * 150)                    
                                 removed = menu.pop(2)
                                 menu.insert(0, removed)
                                 for n, m in enumerate(menu,1):
-                                    print(n, m)
+                                    print(n, m)                     # menu actualizado
                                 print('\n')
                                 option = input('Elija una opción\n-> ')
                                 print('\n')
@@ -670,11 +722,12 @@ else:
                         if resp_1 == '0':           # adivinanzas 1 y 2 para confirmar elección
                             resp_2 = input(guess2)            
                             if resp_2 == '4':
-                                print('\n')          # menu actualizado
+                                print(50 * '\n')
+                                print('-' * 150)          
                                 removed = menu.pop(3)
                                 menu.insert(0, removed)
                                 for n, m in enumerate(menu,1):
-                                    print(n, m)
+                                    print(n, m)                     # menu actualizado
                                 print('\n')
                                 option = input('Elija una opción\n-> ')
                                 print('\n')
@@ -688,11 +741,12 @@ else:
                         if resp_1 == '0':           # adivinanzas 1 y 2 para confirmar elección
                             resp_2 = input(guess2)            
                             if resp_2 == '4':
-                                print('\n')          # menu actualizado
+                                print(50 * '\n')
+                                print('-' * 150)          
                                 removed = menu.pop(4)
                                 menu.insert(0, removed)
                                 for n, m in enumerate(menu,1):
-                                    print(n, m)
+                                    print(n, m)                     # menu actualizado
                                 print('\n')
                                 option = input('Elija una opción\n-> ')
                                 print('\n')
@@ -705,6 +759,8 @@ else:
                         print('Error')
                         sys.exit()
                 elif option == '7':       # opción para terminar el programa
+                    print(50 * '\n')
+                    print('-' * 150)
                     good_bye()
                     print('Hasta pronto')
                     sys.exit()
@@ -712,6 +768,8 @@ else:
                     print('Error')
                     counter += 1
                     if counter == 4:
+                        print(50 * '\n')
+                        print('-' * 150)
                         sys.exit()
                 for n, m in enumerate(menu,1):
                     print(n, m)
