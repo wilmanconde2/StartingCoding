@@ -107,7 +107,7 @@ print(f'Resta de asignación a -= 2 -> a={a}')
 a *= 10  # multiplicaión en signación
 print(f'Multiplicación de asignación a *= 10 -> a={a}')
 a /= 4  # división en asignación
-print(f'Divisón de asignación a /= 4 -> a={a}')
+print(f'Division de asignación a /= 4 -> a={a}')
 a **= 3  # exponenciacion en asignación
 print(f'Exponenciación de asignación a **= 3> a={a}')
 a %= 4  # modulo en signación
