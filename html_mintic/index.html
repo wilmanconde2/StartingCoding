@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <style>
+    body {
+      background-color: lightsalmon;
+    }
+
+    h1 {
+      background-color: blueviolet;
+      text-align: center;
+    }
+
+    h4 {
+      background-color: lightgreen;
+    }
+
+    p {
+      background-color: darkorange;
+
+    }
+
+    #identificador {
+      text-align: center;
+      background-color: darkorchid;
+      margin: 10px;
+      border: 10px solid tomato;
+      color: white;
+      background-color: lightgreen;
+      width: 30%;
+      height: 200px;
+
+    }
+  </style> -->
+  <link rel="stylesheet" href="resources/css/styles.css" />
+  <title>Hola Mundo</title>
+</head>
+
+<body>
+  <h1 style="color: red">hello</h1>
+  <h2 style="color: red">hello</h2>
+  <h3 style="color: red">hello</h3>
+  <h4 style="color: red">hello</h4>
+
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum molestiae,
+    voluptate delectus fuga sint quasi cumque esse sunt est labore beatae
+    vitae tempora tempore alias repudiandae dicta doloremque eum quia?
+  </p>
+
+  <pre style="background-color: blue;">
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Non ut debitis maiores officia inventore expedita itaque, 
+          nulla nostrum earum accusamus alias porro, 
+              in voluptatibus sed. Reiciendis fuga in ipsum aut!</pre>
+
+  <hr />
+  <h5 style="font-family: serif; color: aqua; font-size: 25px">
+    <i> entre lineas </i>
+    <p style="font-family: georgia; font-size: small">
+      <b>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis,
+        commodi vel quia voluptate perspiciatis assumenda quo soluta odit in
+        consectetur, voluptates accusamus distinctio perferendis libero,
+        aliquid nam doloribus impedit cupiditate.</b>
+    </p>
+  </h5>
+  <hr />
+  <ul>
+    <li>uno</li>
+    <li>uno</li>
+    <li>uno</li>
+    <li>uno</li>
+  </ul>
+  <ol>
+    <li><a href="#referencia"> enlace referencia</a></li>
+    <li>uno</li>
+    <li>uno</li>
+    <li>uno</li>
+  </ol>
+  <br />
+
+  <a href="pagina.html">Enlace entre paginas</a>
+  <br />
+  <br />
+  <hr />
+
+  <table border="10">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>last name</th>
+      <th>email</th>
+    </tr>
+    <tr>
+      <td><i style="color: fuchsia">celda</i></td>
+      <td><b style="color: gold">celda</b></td>
+      <td><u style="color: aqua">celda</u></td>
+      <td>celda</td>
+    </tr>
+  </table>
+  <br />
+  <table>
+    <tr>
+      <td>
+        <img width="100" title="Texto en imagen" src="resources\imgs\img1.jpg" border="5" />
+      </td>
+      <td><img width="94" src="resources\imgs\img3.jpg" border="5" /></td>
+      <td ><img width="100" src="resources\imgs\img2.jpg" border="5" /></td>
+    </tr>
+  </table>
+
+  <hr />
+  <form>
+    <fieldset>
+      <legend>Registro cliente</legend>
+      <legend>Nombre</legend>
+      <input type="text" required name="nombre" />
+      <legend>email</legend>
+      <input type="email" required name="correo" />
+      <legend>fecha</legend>
+      <input type="date" required name="fecha" />
+      <hr />
+      <legend>Opcion simple y multiple</legend>
+      <select name="dropdown" required>
+        <option value="1">valor1</option>
+        <option value="2">valor2</option>
+        <option value="3">valor3</option>
+      </select>
+      <select name="dropdown" multiple required>
+        <option value="1">valor1</option>
+        <option value="2">valor2</option>
+        <option value="3">valor3</option>
+      </select>
+      <hr />
+      <input type="submit" value="Enviar" />
+    </fieldset>
+  </form>
+
+  <table >
+    <picture>
+      <source media="(min-width:1200px)" srcset="resources/imgs/img3.jpg" />
+      <source media="(min-width:800px)" srcset="resources/imgs/img2.jpg" />
+      <img id="referencia" src="resources/imgs/img1.jpg" />
+    </picture>
+  </table>
+</body>
+<div>
+  <p style="border: 5px solid blue; background-color: cyan">
+    Texto <span style="color: red"> Uno </span>
+  </p>
+</div>
+
+<div id="identificador">
+  <p>Texto <span style="color: red"> Uno </span></p>
+</div>
+
+</html>

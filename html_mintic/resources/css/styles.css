@@ -1,0 +1,39 @@
+<style>
+{}
+body {
+  background-color:lightsalmon;
+  background-image:url("/html/resources/imgs/img4.jpg");
+  background-attachment: fixed;
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: 1300px;
+  background-blend-mode:color-burn;
+  border-style:double;
+  border-color:aqua;
+  border-width: 5px;
+
+}
+h1 {
+  background-color: blueviolet;
+  text-align: center;
+}
+
+h4 { background-color:lightgreen;
+}
+
+p{ background-color:darkorange;
+
+}
+
+#identificador{
+    text-align: center;
+    background-color:darkorchid;
+    margin: 10px;
+    border: 10px solid yellow;
+    color: white;
+    background-color:lime;
+    width: 50%;
+    height: 200px; 
+
+}
+</style>
