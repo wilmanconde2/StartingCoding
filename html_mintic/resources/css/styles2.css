@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(17, 55, 104);
+}
+h1 {
+  color: rgb(235, 122, 47);
+  position: fixed;
+}
+#row ul {
+  position: fixed;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(36, 166, 218);
+}
+#row li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+}
+#row li a:hover:not(.active) {
+  text-decoration: underline;
+  background-color: rgb(143, 173, 85);
+}
+#row li {
+  float: left;
+}
+.active {
+  background-color: rgba(128, 255, 0, 0.527);
+}
+.button1 {
+  position: fixed;
+}
+p {
+  color: rgba(255, 255, 255, 0.582);
+}
+a {
+  color: rgb(255, 255, 255);
+}

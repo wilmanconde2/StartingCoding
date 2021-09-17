@@ -1,5 +1,3 @@
-<style>
-{}
 body {
   background-color:lightsalmon;
   background-image:url("/resources/imgs/img4.jpg");
@@ -18,11 +16,16 @@ h1 {
   text-align: center;
 }
 
-h4 { background-color:lightgreen;
+h4 { 
+  background-color:lightgreen;
 }
 
-p{ background-color:darkorange;
+p { 
+  background-color:darkorange;
+}
 
+a {
+  color:rgb(255, 255, 255);
 }
 
 #identificador{
@@ -36,4 +39,3 @@ p{ background-color:darkorange;
     height: 200px; 
 
 }
-</style>
