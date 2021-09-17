@@ -1,0 +1,35 @@
+<style>
+        .clase1 {
+            border: 1px solid darkgoldenrod;
+            background-color: aquamarine;
+            color: black;
+            font-family: Impact;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 200px;
+            margin-right: 200px;
+            text-align: center;
+
+        }
+
+        .clase2{
+            background-color:blue;
+            padding:5px 5px;
+            text-align: center;
+            width:fit-content
+            
+        }
+
+        div.clase3{
+            width: 300px;
+            background-color:tomato;
+        }
+
+        div.clase4{
+            width: 300px;
+            background-color:turquoise;
+            padding: 50px;
+            box-sizing:border-box
+
+        }
+    </style>

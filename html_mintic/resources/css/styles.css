@@ -2,7 +2,7 @@
 {}
 body {
   background-color:lightsalmon;
-  background-image:url("/html/resources/imgs/img4.jpg");
+  background-image:url("/resources/imgs/img4.jpg");
   background-attachment: fixed;
   background-repeat: repeat-y;
   background-position: center;
